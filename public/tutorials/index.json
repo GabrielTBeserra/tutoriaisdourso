@@ -1,0 +1,205 @@
+[
+  {
+    "slug": "restaurar-imagem-windows",
+    "title": "Restaurar imagem do Windows",
+    "description": "Diagnostique e repare a imagem do Windows usando DISM e SFC.",
+    "category": "restauracao",
+    "keywords": ["dism", "sfc", "imagem"]
+  },
+  {
+    "slug": "limpar-windows-update",
+    "title": "Limpar cache do Windows Update",
+    "description": "Corrige atualizações travadas limpando SoftwareDistribution e Catroot2.",
+    "category": "limpeza",
+    "keywords": ["windows update", "softwaredistribution", "catroot2"]
+  },
+  {
+    "slug": "verificar-integridade-sistema",
+    "title": "Verificar integridade do sistema",
+    "description": "Usa SFC e DISM para detectar e reparar arquivos do sistema.",
+    "category": "manutencao",
+    "keywords": ["sfc", "dism", "cbs log"]
+  },
+  {
+    "slug": "limpeza-component-store",
+    "title": "Limpar Component Store",
+    "description": "Reduz uso de disco do WinSxS com DISM StartComponentCleanup.",
+    "category": "limpeza",
+    "keywords": ["winsxs", "dism", "cleanup"]
+  },
+  {
+    "slug": "redefinir-rede",
+    "title": "Redefinir pilha de rede",
+    "description": "Reseta Winsock, IP e limpa DNS para problemas de conectividade.",
+    "category": "restauracao",
+    "keywords": ["netsh", "winsock", "dns"]
+  },
+  {
+    "slug": "reparar-boot",
+    "title": "Reparar boot do Windows",
+    "description": "Recupera MBR, setor de boot e reconstroi BCD em ambiente de recuperação.",
+    "category": "restauracao",
+    "keywords": ["bootrec", "bcd", "mbr"]
+  },
+  {
+    "slug": "verificar-disco",
+    "title": "Verificar disco com CHKDSK",
+    "description": "Analisa disco e agenda correções para o próximo reinício.",
+    "category": "manutencao",
+    "keywords": ["chkdsk", "ntfs", "fix"]
+  },
+  {
+    "slug": "limpar-temporarios",
+    "title": "Limpar arquivos temporários",
+    "description": "Remove safely temporários do usuário e do sistema com PowerShell.",
+    "category": "limpeza",
+    "keywords": ["temp", "cache", "cleanup"]
+  },
+  {
+    "slug": "gerenciar-servicos",
+    "title": "Gerenciar serviços problemáticos",
+    "description": "Lista, pausa e reinicia serviços de forma segura via PowerShell.",
+    "category": "manutencao",
+    "keywords": ["services", "stop-service", "restart-service"]
+  },
+  {
+    "slug": "limpar-cache-store",
+    "title": "Limpar cache da Microsoft Store",
+    "description": "Resolve falhas na Store com limpeza de cache e wsreset.",
+    "category": "limpeza",
+    "keywords": ["store", "wsreset", "cache"]
+  },
+  {
+    "slug": "modo-alto-desempenho",
+    "title": "Ativar modo de alto desempenho",
+    "description": "Seleciona plano de energia que prioriza performance do sistema.",
+    "category": "manutencao",
+    "keywords": ["powercfg", "energia", "desempenho"]
+  },
+  {
+    "slug": "otimizar-disco",
+    "title": "Otimizar disco (defrag/trim)",
+    "description": "Executa otimização do volume para melhorar IO e TRIM em SSD.",
+    "category": "manutencao",
+    "keywords": ["defrag", "otimizar", "trim"]
+  },
+  {
+    "slug": "compactar-sistema",
+    "title": "Compactar o sistema (CompactOS)",
+    "description": "Reduz uso de disco compactando binários do Windows com CompactOS.",
+    "category": "manutencao",
+    "keywords": ["compactos", "compact", "armazenamento"]
+  },
+  {
+    "slug": "limpar-logs-evento",
+    "title": "Limpar logs de eventos",
+    "description": "Libera espaço apagando logs antigos de eventos do Windows.",
+    "category": "limpeza",
+    "keywords": ["wevtutil", "event log", "logs"]
+  },
+  {
+    "slug": "limpar-cache-thumbnails",
+    "title": "Limpar cache de miniaturas",
+    "description": "Remove caches de miniaturas corrompidos para corrigir ícones quebrados.",
+    "category": "limpeza",
+    "keywords": ["thumbcache", "explorer", "miniaturas"]
+  },
+  {
+    "slug": "limpar-cache-fontes",
+    "title": "Limpar cache de fontes",
+    "description": "Resolve problemas de renderização de fontes limpando o cache.",
+    "category": "limpeza",
+    "keywords": ["fontcache", "serviço", "renderização"]
+  },
+  {
+    "slug": "resetar-firewall",
+    "title": "Resetar Firewall do Windows",
+    "description": "Restaura configurações padrão do firewall para corrigir bloqueios.",
+    "category": "restauracao",
+    "keywords": ["netsh", "advfirewall", "firewall"]
+  },
+  {
+    "slug": "resetar-proxy-winhttp",
+    "title": "Redefinir proxy do WinHTTP",
+    "description": "Remove configurações de proxy que podem afetar atualizações e rede.",
+    "category": "restauracao",
+    "keywords": ["netsh", "winhttp", "proxy"]
+  },
+  {
+    "slug": "reparar-storeapps",
+    "title": "Reparar apps da Microsoft Store",
+    "description": "Reinstala/reestrutura apps padrões em caso de falhas.",
+    "category": "restauracao",
+    "keywords": ["appx", "reinstalar", "store apps"]
+  },
+  {
+    "slug": "limpar-delivery-optimization",
+    "title": "Limpar Delivery Optimization",
+    "description": "Apaga caches do serviço de otimização de entrega de updates.",
+    "category": "limpeza",
+    "keywords": ["dosvc", "delivery optimization", "cache"]
+  },
+  {
+    "slug": "listar-drivers",
+    "title": "Listar drivers instalados",
+    "description": "Audita drivers do sistema para diagnóstico e manutenção.",
+    "category": "manutencao",
+    "keywords": ["pnputil", "drivers", "diagnóstico"]
+  },
+  {
+    "slug": "diagnosticar-rede",
+    "title": "Diagnosticar rede (Test-NetConnection)",
+    "description": "Verifica conectividade e portas para depurar problemas de rede.",
+    "category": "manutencao",
+    "keywords": ["test-netconnection", "ping", "porta"]
+  },
+  {
+    "slug": "limpar-wer",
+    "title": "Limpar relatórios de erro (WER)",
+    "description": "Remove dumps/relatórios antigos do Windows Error Reporting.",
+    "category": "limpeza",
+    "keywords": ["wer", "CrashDumps", "logs"]
+  },
+  {
+    "slug": "redefinir-pesquisa",
+    "title": "Redefinir serviço de pesquisa",
+    "description": "Reinicia Windows Search e força reindexação básica.",
+    "category": "restauracao",
+    "keywords": ["wsearch", "index", "pesquisa"]
+  },
+  {
+    "slug": "limpeza-disk-cleanup",
+    "title": "Limpeza com Disk Cleanup (Cleanmgr)",
+    "description": "Configura e executa limpeza avançada de disco com Cleanmgr.",
+    "category": "limpeza",
+    "keywords": ["cleanmgr", "sageset", "sagerun"]
+  },
+  {
+    "slug": "reinstalar-driver-corrompido",
+    "title": "Reinstalar driver corrompido",
+    "description": "Remove e reinstala pacotes de driver problemáticos com pnputil.",
+    "category": "restauracao",
+    "keywords": ["pnputil", "driver", "reinstalar"]
+  },
+  {
+    "slug": "apagar-logs-sistema-pesados",
+    "title": "Apagar logs do sistema pesados",
+    "description": "Libera espaço removendo logs e arquivos de diagnóstico grandes.",
+    "category": "limpeza",
+    "keywords": ["cbs", "logs", "diagtrack"]
+  },
+  {
+    "slug": "usar-visualizador-eventos",
+    "title": "Usar o Visualizador de Eventos",
+    "description": "Abre e filtra eventos para entender falhas e lentidão.",
+    "category": "manutencao",
+    "keywords": ["eventvwr", "wevtutil", "logs"]
+  },
+  {
+    "slug": "corrigir-lentidao-menu-iniciar",
+    "title": "Corrigir lentidão do menu iniciar e busca",
+    "description": "Redefine índice de pesquisa e reinicia serviços para melhorar resposta.",
+    "category": "restauracao",
+    "keywords": ["wsearch", "index", "search"]
+  }
+]
