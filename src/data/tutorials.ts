@@ -67,7 +67,8 @@ export function useTutorialIndex(): { index: TutorialIndexItem[]; loading: boole
     let cancelled = false
     async function load() {
       try {
-        const res = await fetch('/tutorials/index.json')
+        const res = await fetch(`${import.meta.env.BASE_URL}tutorials/index.json`)
+        if (!res.ok) throw new Error('index not found')
         const data: TutorialIndexItem[] = await res.json()
         if (!cancelled) setIndex(data)
       } catch {
@@ -94,7 +95,8 @@ export function useTutorialContent(slug: string): { tutorial?: Tutorial; loading
     let cancelled = false
     async function load() {
       try {
-        const res = await fetch('/tutorials/index.json')
+        const res = await fetch(`${import.meta.env.BASE_URL}tutorials/index.json`)
+        if (!res.ok) throw new Error('index not found')
         const index: TutorialIndexItem[] = await res.json()
         const meta = index.find((i) => i.slug === slug)
         if (!meta) {
@@ -104,7 +106,8 @@ export function useTutorialContent(slug: string): { tutorial?: Tutorial; loading
           }
           return
         }
-        const mdRes = await fetch(`/tutorials/${slug}.md`)
+        const mdRes = await fetch(`${import.meta.env.BASE_URL}tutorials/${slug}.md`)
+        if (!mdRes.ok) throw new Error('md not found')
         const md = await mdRes.text()
         const parsed = parseMarkdown(md, slug, meta)
         if (!cancelled) setTutorial(parsed)
