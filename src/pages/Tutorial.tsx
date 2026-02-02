@@ -1,6 +1,6 @@
 import { useTutorialContent } from '../data/tutorials'
 import CodeSnippet from '../components/CodeSnippet'
-import { Card, Heading, Text, Flex, Badge, Separator } from '@radix-ui/themes'
+import { Card, Heading, Text, Flex, Badge, Separator, Container, Button, Box, Callout } from '@radix-ui/themes'
 import { explainCommand } from '../utils/commandExplain'
 
 type Props = { slug: string }
@@ -10,74 +10,99 @@ export default function TutorialPage({ slug }: Props) {
 
   if (loading) {
     return (
-      <main className="container">
-        <h1 className="page-title">Carregando…</h1>
-        <div className="footer-actions">
-          <a className="btn" href="#/">Voltar</a>
-        </div>
-      </main>
+      <Container size="3" p="4">
+        <Heading size="8" align="center">Carregando…</Heading>
+        <Flex justify="center" mt="4">
+          <Button asChild variant="soft">
+            <a href="#/">Voltar</a>
+          </Button>
+        </Flex>
+      </Container>
     )
   }
 
   if (error) {
     return (
-      <main className="container">
-        <h1 className="page-title">Erro</h1>
-        <p className="page-subtitle">{error}</p>
-        <div className="footer-actions">
-          <a className="btn" href="#/">Voltar</a>
-        </div>
-      </main>
+      <Container size="3" p="4">
+        <Heading size="8" color="red" align="center">Erro</Heading>
+        <Text as="p" align="center">{error}</Text>
+        <Flex justify="center" mt="4">
+          <Button asChild variant="soft">
+            <a href="#/">Voltar</a>
+          </Button>
+        </Flex>
+      </Container>
     )
   }
 
   if (!tutorial) {
     return (
-      <main className="container">
-        <h1 className="page-title">Conteúdo não encontrado</h1>
-        <a className="btn" href="#/">Voltar</a>
-      </main>
+      <Container size="3" p="4">
+        <Heading size="8" align="center">Conteúdo não encontrado</Heading>
+        <Flex justify="center" mt="4">
+          <Button asChild variant="soft">
+            <a href="#/">Voltar</a>
+          </Button>
+        </Flex>
+      </Container>
     )
   }
 
   return (
-    <main className="container">
-      <Flex align="center" justify="between" mb="2">
-        <Heading size="6">{tutorial.title}</Heading>
-        <Badge color="crimson">{labelForCategory(tutorial.category)}</Badge>
+    <Container size="3" p="4">
+      <Flex align="center" justify="between" mb="4" wrap="wrap" gap="2">
+        <Heading size="8">{tutorial.title}</Heading>
+        <Badge size="2" color="crimson">{labelForCategory(tutorial.category)}</Badge>
       </Flex>
-      <Text color="gray" mb="3">{tutorial.description}</Text>
-      <Separator my="3" />
-      <Card className="step">
-        <Heading size="4" mb="1">Como executar os comandos</Heading>
-        <Text mb="2">
+      
+      <Text size="4" color="gray" mb="6" as="p">{tutorial.description}</Text>
+      
+      <Separator my="6" size="4" />
+      
+      <Callout.Root mb="6" color="blue">
+        <Callout.Icon>ℹ️</Callout.Icon>
+        <Callout.Text>
+          <Heading size="3" mb="1">Como executar os comandos</Heading>
           Use PowerShell ou Prompt de Comando. Quando indicado, execute como Administrador.
           Copie o código e cole na janela apropriada. Para abrir rapidamente, use Windows+R
-          e digite o utilitário necessário (por exemplo, <code>eventvwr.msc</code> ou
-          <code>control.exe srchadmin.dll</code>).
-        </Text>
-      </Card>
-      <div className="steps">
+          e digite o utilitário necessário (por exemplo, <Code>eventvwr.msc</Code> ou
+          <Code>control.exe srchadmin.dll</Code>).
+        </Callout.Text>
+      </Callout.Root>
+
+      <Flex direction="column" gap="5">
         {tutorial.steps.map((s, i) => (
-          <Card key={i} className="step">
-            {s.title && <Heading size="4" mb="1">{s.title}</Heading>}
-            {s.text && <Text mb="2">{s.text}</Text>}
-            {s.code && <CodeSnippet code={s.code} />}
+          <Card key={i} size="3">
+            {s.title && <Heading size="4" mb="2">{s.title}</Heading>}
+            {s.text && <Text as="p" mb="3" size="3">{s.text}</Text>}
+            {s.code && <Box mb="3"><CodeSnippet code={s.code} /></Box>}
             {s.code && (
               (() => {
                 const exp = explainCommand(s.code)
                 if (!exp) return null
-                return <Text color="gray" mt="2">{exp}</Text>
+                return (
+                  <Callout.Root size="1" color="gray" variant="surface">
+                    <Callout.Icon>💡</Callout.Icon>
+                    <Callout.Text>{exp}</Callout.Text>
+                  </Callout.Root>
+                )
               })()
             )}
           </Card>
         ))}
-      </div>
-      <div className="footer-actions">
-        <a className="btn" href="#/">Voltar</a>
-      </div>
-    </main>
+      </Flex>
+      
+      <Flex justify="center" mt="8" mb="4">
+        <Button asChild size="3" variant="solid">
+          <a href="#/">Voltar para o início</a>
+        </Button>
+      </Flex>
+    </Container>
   )
+}
+
+function Code({ children }: { children: React.ReactNode }) {
+  return <Text weight="bold" style={{ fontFamily: 'monospace' }}>{children}</Text>
 }
 
 function labelForCategory(c: 'manutencao' | 'limpeza' | 'restauracao') {

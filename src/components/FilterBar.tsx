@@ -1,4 +1,4 @@
-import { Flex, Select } from '@radix-ui/themes'
+import { Flex, Select, TextField } from '@radix-ui/themes'
 import type { TutorialCategory } from '../data/tutorials'
 
 type Props = {
@@ -11,9 +11,9 @@ type Props = {
 
 export default function FilterBar({ category, onCategoryChange, query, onQueryChange, categories }: Props) {
   return (
-    <Flex className="filter-bar" gap="3" align="center" justify="between">
+    <Flex gap="3" align="center" justify="between" wrap="wrap">
       <Select.Root value={category} onValueChange={(v) => onCategoryChange(v as TutorialCategory | 'todas')}>
-        <Select.Trigger />
+        <Select.Trigger style={{ minWidth: '150px' }} />
         <Select.Content>
           <Select.Item value="todas">Todas</Select.Item>
           {categories.map((c) => (
@@ -21,13 +21,11 @@ export default function FilterBar({ category, onCategoryChange, query, onQueryCh
           ))}
         </Select.Content>
       </Select.Root>
-      <input
-        className="input"
+      <TextField.Root 
         value={query}
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) => onQueryChange(e.target.value)}
-        placeholder="Buscar tutoriais"
-        aria-label="Buscar tutoriais"
-        style={{ width: '100%' }}
+        onChange={(e) => onQueryChange(e.target.value)}
+        placeholder="Buscar tutoriais..."
+        style={{ flexGrow: 1, minWidth: '200px' }}
       />
     </Flex>
   )
