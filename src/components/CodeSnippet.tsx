@@ -1,5 +1,5 @@
+import { Button, Card, Code, Flex } from '@radix-ui/themes'
 import { useState } from 'react'
-import { Card, Flex, Button, Code } from '@radix-ui/themes'
 
 type Props = {
   code: string
@@ -20,7 +20,7 @@ export default function CodeSnippet({ code }: Props) {
 
   return (
     <Card variant="surface" style={{ position: 'relative', padding: 0, overflow: 'hidden' }}>
-      <Flex justify="between" align="center" p="2" style={{ backgroundColor: 'var(--gray-3)' }}>
+      <Flex justify="between" align="center" p="2" style={{ backgroundColor: 'var(--gray-a3)' }}>
         <Code size="2" style={{ backgroundColor: 'transparent' }}>PowerShell / CMD</Code>
         <Button size="1" variant="ghost" onClick={copy}>
           {copied ? 'Copiado!' : 'Copiar'}

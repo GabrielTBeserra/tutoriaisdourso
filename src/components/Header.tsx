@@ -12,8 +12,10 @@ export default function Header() {
       style={{
         position: 'sticky',
         top: 0,
-        backgroundColor: 'var(--color-background)',
-        borderBottom: '1px solid var(--gray-5)',
+        backgroundColor: 'rgba(15, 15, 20, 0.6)',
+        backdropFilter: 'blur(12px)',
+        WebkitBackdropFilter: 'blur(12px)',
+        borderBottom: '1px solid var(--gray-a4)',
         zIndex: 10
       }}
     >
