@@ -1,4 +1,4 @@
-import { Button, Flex, Link, Text } from '@radix-ui/themes'
+import { Box, Button, Flex, Link, Text } from '@radix-ui/themes'
 
 export default function Header() {
 
@@ -17,16 +17,22 @@ export default function Header() {
         WebkitBackdropFilter: 'blur(12px)',
         borderBottom: '1px solid var(--gray-a4)',
         zIndex: 10
-      }}
-    >
+      }}>
       <header>
-        <Link href="#/" underline="none" color="gray" highContrast>
-          <Text weight="bold" size="3">Tutoriais do Urso</Text>
-        </Link>
-        <Flex gap="2">
-          <Button asChild variant="soft">
-            <a href="#/">Todos os tutoriais</a>
-          </Button>
+        <Flex align="center" justify="between" gap="4" wrap="wrap">
+          <Box>
+            <Link href="#/" underline="none" color="gray" highContrast>
+              <Text weight="bold" size="4">Tutoriais do Urso</Text>
+            </Link>
+            <Text as="p" size="2" color="gray" style={{ marginTop: 4 }}>
+              Passo a passo claro para resolver problemas e manter o Windows saudável.
+            </Text>
+          </Box>
+          <Flex gap="2">
+            <Button asChild size="2" variant="soft">
+              <a href="#/">Todos os tutoriais</a>
+            </Button>
+          </Flex>
         </Flex>
       </header>
     </Flex>
